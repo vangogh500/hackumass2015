@@ -22,25 +22,10 @@ var userSchema = mongoose.Schema({
 		tier: String,
 		division: String,
 		lp: Number
-	}
-	
-	rankTeam5v5: {
-		teamname: String
-		tier: String,
-		division: String,
-		lp: Number
-	}
-	
-	rankTeam3v3: {
-		teamname: String
-		tier: String,
-		division: String,
-		lp: Number
-	}
+	},
 	
 	//Admin info
-	lastUpdate: Date,
+	lastUpdate: Date
 });
 
-var User = mongoose.model('User', userSchema);
-module.exports = User;
+module.exports = mongoose.model('User', userSchema);
