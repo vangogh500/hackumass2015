@@ -3,36 +3,14 @@
 	padding: 0px;
 }
 
-@keyframes slideOutLeft {
-    to      { transform: translateX(-100%); }
-}
-
-@keyframes slideInRight {
-    from    { transform:translateX(100%); }
-    to      { transform: translateX(0); }
-}
-
-.page {
-    bottom:0; 
-    padding-top:200px;
-    position:absolute; 
-    text-align:center;
-    top:0;  
-    width:100%; 
-}
-
-.ng-enter { animation: slideInRight 10s both ease-in; z-index: 8888; }
-.ng-leave { animation: slideOutLeft 10s both ease-in; z-index: 9999; }
-
 body {
 	font-family: 'Montserrat', sans-serif;
 	background: #D34747;
-
 }
 
 #header {
 	background: #D34747;
-	color: #dddddd;
+	color: #cccccc;
 	padding: 10px 100px 20px 140px;
 	width: 100% - 240px;
 }
