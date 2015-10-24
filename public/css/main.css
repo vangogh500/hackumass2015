@@ -1,0 +1,68 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	background: #D34747;
+
+}
+
+#header {
+	background: #D34747;
+	color: #dddddd;
+	padding: 10px 0px 10px 0px;
+	width: 100%;
+}
+
+#header-top {
+	padding: 0px 100px 10px 140px;
+}
+
+#header #logo {
+	font-size: 25px;
+	float: left;
+}
+
+#main-nav{
+	margin-left: 50%;
+	padding-top: 10px;
+}
+
+ul#menu li {
+	margin-left: 5px;
+    display:inline;
+}
+
+li {
+	padding: 5px 10px;
+	transition: background 0.7s;
+}
+
+li:hover {
+	background: #ca1414;
+}
+
+#header-bottom {
+	margin: 10px 20px;
+	width: 100% - 100px;
+	height: 80px;
+	background: #eeeeee;
+	border-radius: 20px;
+}
+
+#main-container {
+	padding: 0px 20px;
+}
+
+#rankings {
+	width: 100%;
+	height: 500px;
+	background: white;
+}
+
+#school {
+	padding: 20px 80px;
+	font-size: 24px;
+}
