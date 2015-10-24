@@ -12,8 +12,8 @@ body {
 #header {
 	background: #D34747;
 	color: #dddddd;
-	padding: 10px 0px 10px 0px;
-	width: 100%;
+	padding: 10px 100px 20px 140px;
+	width: 100% - 240px;
 }
 
 #header-top {

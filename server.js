@@ -3,17 +3,23 @@ mongoose.connect('mongodb://unilol:unilol2015@ds045064.mongolab.com:45064/unilol
 
 var express = require('express');
 var app = express();
-var bodyParser = require('body-parser');
 
 var User = require('./models/user.js');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 
-var port = process.env.PORT || 3000;        // set our port
+// sets port
+app.set('port', process.env.PORT || 3000);
+// sets directory for views
+app.set('views', __dirname + '/views');
+// sets view engine
+app.set('view engine',"jade");
 
+
+app.use(express.static(__dirname + '/public'));
+// look @ routes.js
+require('./routes.js')(app);
 
 //ROUTES
 
@@ -32,5 +38,5 @@ app.use('/rank', router);
 
 // START THE SERVER
 // =============================================================================
-app.listen(port);
-console.log('Magic happens on port ' + port);
+app.listen(app.get('port'));
+console.log('Magic happens on port ' + app.get('port'));
