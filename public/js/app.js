@@ -1,10 +1,10 @@
-var app = angular.module('UniLol', ['ngRoute']);
+var app = angular.module('UniLol', ['ui.select', 'ngRoute']);
 
 app.config(function($routeProvider) { 
   $routeProvider 
     .when('/', { 
       templateUrl: 'views/index.html',
-      controller: 'indexController'
+      controller: 'IndexController'
     })
     .otherwise({ 
       redirectTo: '/' 

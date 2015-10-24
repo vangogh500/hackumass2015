@@ -35,12 +35,12 @@ ul#menu li {
     display:inline;
 }
 
-li {
+ul#menu li {
 	padding: 5px 10px;
 	transition: background 0.7s;
 }
 
-li:hover {
+ul#menu li:hover {
 	background: #ca1414;
 }
 
