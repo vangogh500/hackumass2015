@@ -5,11 +5,13 @@
 
 body {
 	font-family: 'Montserrat', sans-serif;
-	background: #D34747;
+	background: #399480;
+	/* Old color #D34747 */
 }
 
 #header {
-	background: #D34747;
+	background: #399480;
+	/* Old color #D34747 */
 	color: #cccccc;
 	padding: 10px 100px 20px 140px;
 	width: 100% - 240px;
