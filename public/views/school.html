@@ -2,6 +2,12 @@
 <div id="mainContainer">
 	<div id="schoolContainer">
 		<img id="schoolLogo" src="./img/umass.png">
-		<span>University of Massachusetts Amherst</span>
+		<span id="schoolName">University of Massachusetts Amherst</span>
+	</div>
+	<div id="ladder">
+		{{players}}
+		<div ng-repeat="player in players">
+			{{player.name}}
+		</div>
 	</div>
 </div>

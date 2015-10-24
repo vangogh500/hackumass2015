@@ -6,9 +6,9 @@ app.config(function($routeProvider) {
       templateUrl: 'views/index.html',
       controller: 'IndexController'
     })
-    .when('/school', {
+    .when('/school/:schoolID', {
       templateUrl: 'views/school.html',
-      controller: 'IndexController'
+      controller: 'SchoolController'
     })
     .otherwise({ 
       redirectTo: '/' 

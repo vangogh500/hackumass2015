@@ -3,7 +3,7 @@ body {
 }
 
 #schoolContainer {
-	margin: 20px 100px;
+	margin: 15px 100px;
 	background: white;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
 }
@@ -13,6 +13,11 @@ body {
 	width: 140px;
 }
 
-span {
+span#schoolName {
+	margin-left: 40px;
 	font-size: 20px;
+}
+
+#ladder {
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
 }

@@ -6,10 +6,10 @@ app.controller('IndexController', function($scope, $window){
   ];
   function update(id, yLabel) {
     console.log("test");
-    $window.location.href = '#school';
+    $window.location.href = '#school/' + id;
   }
   
   $scope.$watch('choice.selected', function(chosen) {
-    if(chosen) update(chosen.key, chosen.detail);
+    if(chosen) update(chosen.id, chosen.detail);
   });
 });
