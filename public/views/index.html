@@ -6,7 +6,7 @@
 </div>
 <div class="select-container">
     <ui-select ng-model="choice.selected" theme="bootstrap">
-      <ui-select-match placeholder="Choose a category...">{{$select.selected.name}}</ui-select-match>
+      <ui-select-match placeholder="Enter your school...">{{$select.selected.name}}</ui-select-match>
       <ui-select-choices repeat="c in choices | filter: $select.search">
         <div>{{c.name}}</div>
         <small>{{c.detail}}</small>
