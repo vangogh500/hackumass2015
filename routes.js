@@ -1,3 +1,5 @@
+var riotjs = require('riot.js');
+
 module.exports = function(app) {
   // home page
   app.get('/', function(req, res){
@@ -16,4 +18,17 @@ module.exports = function(app) {
     res.status(500);
     res.send('500 - Server Error');
   });
+  
+  
+  //deletes, creates a new user, and edits a user
+  
+  app.get('/api/user/:username', function(req,res){
+	
+  
+  
+  }
+  
+  
+  
+  
 };
