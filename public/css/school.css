@@ -35,14 +35,23 @@ span {
 }
 
 .player {
-	padding: 20px;
+	padding: 20px 35px;
 }
 
 .player:nth-child(even) {
 	background: #dddddd;
 }
 
+.ign {
+	float: left;
+}
+
 .rank {
-	margin-left: 65%;
+	margin-left: 55%;
+}
+
+.lp {
+	float: right;
+	margin-right: 35px;
 }
 
