@@ -5,7 +5,7 @@
 		<span id="schoolName">University of Massachusetts Amherst</span>
 	</div>
 	<div id="ladder">
-		<div class="player" ng-repeat="p in players">
+		<div class="player" ng-repeat="p in players" title="{{p.status}}">
 			<div class="ign">
 				<span class="numberedList" >{{$index + 1}}</span>
 				<span>{{p.ign}}</span>

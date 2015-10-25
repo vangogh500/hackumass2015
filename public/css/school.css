@@ -36,6 +36,7 @@ span {
 
 .player {
 	padding: 20px 35px;
+	position: relative;
 	transition: background 0.8s;
 }
 
@@ -47,13 +48,28 @@ span {
 	background: #bbbbbb;
 }
 
+.player:hover:after{
+    background: #333;
+    background: rgba(0,0,0,.8);
+    border-radius: 5px;
+    bottom: 70px;
+    color: #fff;
+    content: attr(title);
+    left: 0px;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width: 220px;
+}
+
+
+
 .ign {
 	float: left;
 	width: 250px;
 }
 
 .rank {
-	padding-bottom: 30px;
 	margin-left: 55%;
 }
 
