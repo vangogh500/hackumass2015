@@ -4,14 +4,9 @@ mongoose.connect('mongodb://unilol:unilol2015@ds045064.mongolab.com:45064/unilol
 var express = require('express');
 var app = express();
 
-var User = require('./models/user.js');
-var College = require('./models/college.js');
 
 var phjs = require('./lib/player_handler.js');
 
-umass.save(function(err) {
-	console.log("saving umass");
-});
 
 /*phjs.formatPlayer('Hauuguu', 'ayuu', function(err) {
 	console.log(err);
