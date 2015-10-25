@@ -38,7 +38,7 @@ module.exports = function(app) {
 		ign = req.params.ign;
 		email = req.params.email;
 		
-		riotjs.checkForExistingProfile(username, ign, email, function(err){
+		phjs.checkForExistingProfile(username, ign, email, function(err){
 			if (!err) 
 				res.end("conflict");	//not error means that profile (user || ign || email) already exists
 			else{
