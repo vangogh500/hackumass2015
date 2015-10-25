@@ -5,9 +5,12 @@
 		<span id="schoolName">University of Massachusetts Amherst</span>
 	</div>
 	<div id="ladder">
-		{{players}}
-		<div ng-repeat="player in players">
-			{{player.name}}
+		<div class="player" ng-repeat="p in players">
+			<span class="ign">{{p.name}}</span>
+			<div class="rank">
+				<span class="lp">{{p.lp}}</span>
+				<span class="rank">{{p.rank}}</span>
+			</div>
 		</div>
 	</div>
 </div>

@@ -16,8 +16,9 @@ body {
 <<<<<<< HEAD
 span#schoolName {
 	margin-left: 40px;
-=======
-#schoolLogo2 {
+}
+
+#schoolL{
 	padding: 20px;
 	width: 140px;
 }
@@ -28,5 +29,20 @@ span {
 }
 
 #ladder {
+	margin: 30px 100px;
+	background: white;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
 }
+
+.player {
+	padding: 20px;
+}
+
+.player:nth-child(even) {
+	background: #dddddd;
+}
+
+.rank {
+	margin-left: 65%;
+}
+
