@@ -172,7 +172,7 @@ module.exports = function(app) {
 			if (err) return res.send(500, 'Error occurred: database error');
 			else res.send('Put success!');
 						
-			phjs.updateField(req.params.username, req.params.password, null, null, null, null, req.params.status, null, null, req.params.favRole, req.params.favChampion);
+			phjs.updateField(req.params.username, req.params.password, null, null, null, null, req.params.status, null, req.params.favRole, req.params.favChampion);
 		});
     });
 	
