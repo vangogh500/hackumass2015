@@ -10,57 +10,55 @@ app.controller('SchoolController', function($scope, $routeParams, $http){
 			$scope.players.forEach(function(player) {
 				var tier;
 				switch(player.rankSoloQ.tier) {
-					case 0:
-						tier = "Unranked"
-						break;
-					case 1:
+					case 0:{
+						tier = "Unranked";
+						break;}
+					case 1:{
 						tier = "Bronze";
-						break;
-					case 2:
+						break;}
+					case 2:{
 						tier = "Silver";
-						break;
-					case 3:
+						break;}
+					case 3:{
 						tier = "Gold";
-						break;
-					case 4:
+						break;}
+					case 4:{
 						tier = "Platinum";
-						break;
-					case 5:
+						break;}
+					case 5:{
 						tier = "Diamond";
-						break;
-					case 6:
+						break;}
+					case 6:{
 						tier = "Master";
-						break;
-					case 7:
+						break;}
+					case 7:{
 						tier = "Challenger";
-						break;
-					default:
-						tier = "Unranked"
-						break;
+						break;}
+					default:{
+						tier = "Unranked";}
 				};
 				var division;
 				switch(player.rankSoloQ.division) {
-					case 0:
-						division = ""
-						break;
-					case 5:
+					case 0:{
+						division = "";
+						break;}
+					case 5:{
 						division = "I";
-						break;
-					case 4:
+						break;}
+					case 4:{
 						division = "II";
-						break;
-					case 3:
+						break;}
+					case 3:{
 						division = "III";
-						break;
-					case 2:
+						break;}
+					case 2:{
 						division = "IV";
-						break;
-					case 1:
+						break;}
+					case 1:{
 						division = "V";
-						break;
-					default:
-						division = ""
-						break;
+						break;}
+					default:{
+						division = "";}
 				};
 				if(player.rankSoloQ.lp < 0) {
 					player.rankSoloQ.lp = "";
