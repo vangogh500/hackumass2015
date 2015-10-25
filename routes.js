@@ -38,11 +38,11 @@ module.exports = function(app) {
 		ign = req.params.ign;
 		email = req.params.email;
 		
-		phjs.checkForExistingProfile(username, ign, email, function(err){
-			if (!err) 
+		phjs.checkForExistingProfile(username, ign, email, function(err, found){
+			if(err) console.log(err);
+			if (found.length > 0) 
 				res.end("conflict");	//not error means that profile (user || ign || email) already exists
 			else{
-		
 				rand = Math.floor((Math.random() * 100) + 54);
 				host = req.get('host');
 				link = "http://" + req.get('host') + "/verify?id=" + rand;
