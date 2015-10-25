@@ -138,6 +138,12 @@ module.exports = function(app) {
     //get, deletes, creates a new user, and edits a user
 
 
+	app.get('/api/user/:college', function(req, res) {
+        UserJS.findAll({ college: req.params.college}, function(err, c) {
+            if (err) return res.send(500, 'Error occurred: database error');
+            res.json(c);
+        });
+    });
 
     app.get('/api/user/:username', function(req, res) {
         UserJS.findOne({ loginUser: req.params.username}, function(err, u) {
