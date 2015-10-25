@@ -6,10 +6,10 @@
 	</div>
 	<div id="ladder">
 		<div class="player" ng-repeat="p in players">
-			<div class="ign"><span>{{p.name}}</span></div>
+			<div class="ign"><span>{{p.ign}}</span></div>
 			<div class="rank">
-				<span class="rank">{{p.rank}}</span>
-				<span class="lp">{{p.lp}}</span>
+				<span class="rank">{{p.tierStr + " " + p.divStr}}</span>
+				<span class="lp">{{p.rankSoloQ.lp}}</span>
 			</div>
 		</div>
 	</div>
