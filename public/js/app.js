@@ -1,4 +1,4 @@
-var app = angular.module('UniLol', ['ui.select', 'ngRoute']);
+var app = angular.module('UniLol', ['ui.select', 'ngRoute', 'ngAnimate']);
 
 app.config(function($routeProvider) { 
   $routeProvider 

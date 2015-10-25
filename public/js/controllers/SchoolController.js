@@ -1,4 +1,5 @@
 app.controller('SchoolController', function($scope, $routeParams, $http){
+	$scope.pageClass = 'page-choice';
 	var schoolID = $routeParams.schoolID;
 	$http({
 	  method: 'GET',
