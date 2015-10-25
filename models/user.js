@@ -9,6 +9,7 @@ var userSchema = mongoose.Schema({
 	college: String,
 	
 	//Site profile info
+	loginUser: String,
 	status: String,
 
 	//In-game info
