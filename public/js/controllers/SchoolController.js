@@ -10,9 +10,6 @@ app.controller('SchoolController', function($scope, $routeParams, $http){
 			$scope.players.forEach(function(player) {
 				var tier;
 				switch(player.rankSoloQ.tier) {
-					case 0:{
-						tier = "Unranked";
-						break;}
 					case 1:{
 						tier = "Bronze";
 						break;}
@@ -35,13 +32,12 @@ app.controller('SchoolController', function($scope, $routeParams, $http){
 						tier = "Challenger";
 						break;}
 					default:{
-						tier = "Unranked";}
+						tier = "N/A";
+						player.rankSoloQ.lp = "";
+						}
 				};
 				var division;
 				switch(player.rankSoloQ.division) {
-					case 0:{
-						division = "";
-						break;}
 					case 5:{
 						division = "I";
 						break;}
@@ -60,9 +56,7 @@ app.controller('SchoolController', function($scope, $routeParams, $http){
 					default:{
 						division = "";}
 				};
-				if(player.rankSoloQ.lp < 0) {
-					player.rankSoloQ.lp = "";
-				}
+				
 				player.divStr = division;
 				player.tierStr = tier;
 			});
