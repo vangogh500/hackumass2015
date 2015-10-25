@@ -167,14 +167,12 @@ module.exports = function(app) {
 		});
 	});
 
-    app.put('/api/user/:username/:password', function(req, res) {
-		UserJS.findOne({ loginUser: req.params.username}, function(err, u) {
+    app.put('/api/user/:username/:password/:favRole/:favChampion/:status', function(req, res) {
+		UserJS.findOne({ loginUser: req.params.username, password: req.params.password }, function(err, u) {
 			if (err) return res.send(500, 'Error occurred: database error');
 			else res.send('Put success!');
-			
-			var firstNameValue, lastNameValue, emailValue, collegeValue, loginUserValue, statusValue, ignValue, userIDValue, favRoleValue, favChampionValue;
-			
-			phjs.updateField(loginUser, req.params.password, req.params.firstName, req.params.lastName, req.params.email, req.params.college, req.params.status, req.params.ign, req.params.ign, req.params.userID, req.params.favRole, req.params.favChampion);
+						
+			phjs.updateField(req.params.username, req.params.password, null, null, null, null, req.params.status, null, null, req.params.favRole, req.params.favChampion);
 		});
     });
 	

@@ -42,10 +42,26 @@ app.controller('Sign-InController', function($scope, $routeParams, $http){
 		}
 	};
 	$scope.update = function() {
-		$scope.role;
-		$scope.champ;
-		$scope.status;
-		$scope.upUsername;
-		$scope.upPassword;
+		console.log("test");
+		$http({
+		  method: 'PUT',
+		  url: '/api/user/' + $scope.upUsername + '/' + $scope.upPassword + '/' + $scope.role + '/' + $scope.champ + '/' + $scope.status;
+		}).then(function successCallback(response) {
+			if(response.data == 'error') {
+				$scope.msg = "Email was invalid!";
+		    	$scope.$apply;
+			}
+			else if(response.data == 'conflict') {
+				$scope.msg = "Username, ign, or email has already been reserved!";
+		    	$scope.$apply;
+			}
+			else {
+				$scope.msg = "Email was sent!";
+				$scope.$apply;
+			}
+		}, function errorCallback(response) {
+		    $scope.msg = "Oops! Something went wrong contacting the server!";
+		    $scope.$apply;
+		});
 	};
 });

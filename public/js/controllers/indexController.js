@@ -1,7 +1,7 @@
 app.controller('IndexController', function($scope, $window){
   $scope.choice = {};
   $scope.choices = [
-    { name: 'University of Massachusetts Amherst (UMASS)', detail: 'Amherst, MA', id: 'umass'},
+    { name: 'University of Massachusetts Amherst (UMASS)', detail: 'Amherst, MA', id: 'UMass_Amherst'},
     { name: 'Boston University (BU)', detail: 'Boston, MA'}
   ];
   function update(id, yLabel) {
