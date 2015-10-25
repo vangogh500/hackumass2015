@@ -16,6 +16,9 @@ var smtpTransport = nodemailer.createTransport("SMTP", {
 });
 
 module.exports = function(app) {
+
+	app.use(require('cors')());
+
     // home page
     app.get('/', function(req, res) {
         res.sendFile('./index.html');
@@ -98,8 +101,8 @@ module.exports = function(app) {
 	
 	app.post('/api/user/:username/:ign', function(req, res) {
 		phjs.formatPlayer(req.params.username, req.params.ign, function(err){
-			if (err) res.end('Error');
-			else res.end('Success!');
+			if (err) res.send('Error');
+			else res.send('Success!');
 		});
 	});
 
