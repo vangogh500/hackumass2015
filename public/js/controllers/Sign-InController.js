@@ -1,11 +1,10 @@
 app.controller('Sign-InController', function($scope, $routeParams, $http){
-	console.log('test');
 	function validateEmail(email) {
     	var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     	return re.test(email);
 	}
 	$scope.verify = function() {
-		if($scope.username && $scope.ign && $scope.email) {
+		if($scope.username && $scope.ign && $scope.email && $scope.password) {
 			if(!validateEmail($scope.email)) {
 				$scope.msg = $scope.email + " is not a valid email!";
 				$scope.$apply;
@@ -17,7 +16,7 @@ app.controller('Sign-InController', function($scope, $routeParams, $http){
 			else {
 				$http({
 				  method: 'GET',
-				  url: '/send/' + $scope.email + '/' + $scope.username + '/' + $scope.ign
+				  url: '/send/' + $scope.email + '/' + $scope.username + '/' + $scope.password + '/' + $scope.ign
 				}).then(function successCallback(response) {
 					if(response.data == 'error') {
 						$scope.msg = "Email was invalid!";
@@ -41,5 +40,12 @@ app.controller('Sign-InController', function($scope, $routeParams, $http){
 			$scope.msg = "Make sure that all fields are filled in!";
 			$scope.$apply;
 		}
+	};
+	$scope.update = function() {
+		$scope.role;
+		$scope.champ;
+		$scope.status;
+		$scope.upUsername;
+		$scope.upPassword;
 	};
 });
