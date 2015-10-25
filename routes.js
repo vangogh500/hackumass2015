@@ -141,8 +141,9 @@ module.exports = function(app) {
 	app.get('/api/user/:college', function(req, res) {
         UserJS.find({ college: req.params.college}, function(err, c) {
             if (err) return res.send(500, 'Error occurred: database error');
-            res.json(c);
-        }).sort({ totalRank: 'desc' });
+			
+            res.json(c.sort({ totalRank: 'asc' }));
+        });
     });
 
     app.get('/api/user/:username', function(req, res) {
