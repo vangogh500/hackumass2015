@@ -142,7 +142,7 @@ module.exports = function(app) {
         UserJS.find({ college: req.params.college}, function(err, c) {
             if (err) return res.send(500, 'Error occurred: database error');
 			
-            res.json(c.sort({ totalRank: 'asc' }));
+            res.json(c.sort({ totalRank: 'desc' }));
         });
     });
 
