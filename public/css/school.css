@@ -66,11 +66,11 @@ span {
 
 .ign {
 	float: left;
-	width: 250px;
+	width: 375px;
 }
 
 .rank {
-	margin-left: 55%;
+	margin-left: calc(100% - 225px);
 }
 
 .lp {
@@ -85,4 +85,5 @@ span {
 
 .role {
 	color: #5a5a5a;
+	margin-left: calc(100% - 100px);
 }
