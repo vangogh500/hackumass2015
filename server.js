@@ -10,13 +10,13 @@ var phjs = require('./lib/player_handler.js');
 
 phjs.formatPlayer('Hauuguu', 'ayuu', function(err) {
 	console.log(err);
-	phjs.updateProfile('Hauuguu', 'Hwan', 'Cho', 'cho@umass.edu', 'nico nico nii', 'UMass', 'Ayuuuuuu', 123123123, 'Support', 'Tryndamere');
+	//phjs.updateProfile('Hauuguu', 'Hwan', 'Cho', 'cho@umass.edu', 'nico nico nii', 'UMass', 'Ayuuuuuu', 123123123, 'Support', 'Tryndamere');
 	console.log("now deleting it...");
 	
-	//phjs.removeProfile("")
+	/*phjs.removeProfile('Hauuguu', function(err){
+		console.log(err);
+	});*/
 });
-
-
 
 //=========================================================================
 	
