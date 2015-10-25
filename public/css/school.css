@@ -42,8 +42,13 @@ span {
 	background: #dddddd;
 }
 
+.player:hover {
+	
+}
+
 .ign {
 	float: left;
+	width: 250px;
 }
 
 .rank {
@@ -58,5 +63,8 @@ span {
 .numberedList {
 	margin-right: 30px;
 	color: #9c9c9c;
+}
 
+.role {
+	color: #5a5a5a;
 }

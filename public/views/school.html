@@ -7,8 +7,12 @@
 	<div id="ladder">
 		<div class="player" ng-repeat="p in players">
 			<div class="ign">
-			<span class="numberedList" >{{$index + 1}}</span>
-			<span>{{p.ign}}</span>
+				<span class="numberedList" >{{$index + 1}}</span>
+				<span>{{p.ign}}</span>
+				
+			</div>
+			<div class="about">
+				<span class="role">{{p.favRole}}</span>
 			</div>
 			<div class="rank">
 				<span class="rank">{{p.tierStr + " " + p.divStr}}</span>

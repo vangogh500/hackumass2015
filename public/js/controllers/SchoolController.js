@@ -4,6 +4,7 @@ app.controller('SchoolController', function($scope, $routeParams, $http){
 	  method: 'GET',
 	  url: '/api/user/' + schoolID
 	}).then(function successCallback(response) {
+		console.log(response.data);
 		if(response.data) {
 			$scope.players = response.data;
 			$scope.players.forEach(function(player) {
@@ -55,6 +56,9 @@ app.controller('SchoolController', function($scope, $routeParams, $http){
 						division = ""
 						break;
 				};
+				if(player.rankSoloQ.lp < 0) {
+					player.rankSoloQ.lp = "";
+				}
 				player.divStr = division;
 				player.tierStr = tier;
 			});
