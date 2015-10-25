@@ -13,7 +13,7 @@ phjs.formatPlayer('Hauuguu', 'ayuu', function(err) {
 	phjs.updateProfile('Hauuguu', 'Hwan', 'Cho', 'cho@umass.edu', 'nico nico nii', 'UMass', 'Ayuuuuuu', 123123123, 'Support', 'Tryndamere');
 	console.log("now deleting it...");
 	
-	//phjs.removeProfile
+	//phjs.removeProfile("")
 });
 
 

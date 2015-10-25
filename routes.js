@@ -85,18 +85,18 @@ module.exports = function(app) {
         });
     });
 	
-	app.remove('/api/user/:username', function(req, res) {
+	app.delete('/api/user/:username', function(req, res) {
 	
 		phjs.removeProfile(req.params.username, function(err){
 			if (err) return res.send(500, 'Error occurred: database error');
 			else res.send('Delete success!');
-		}
+		});
 	
 		/*UserJS.remove({ loginUser: req.params.username}, function(err){
 			if (err) return res.send(500, 'Error occurred: database error');
 			else res.send('Delete success!');
 		}*/
-	}
+	});
 	
 	app.post('/api/user/:username/:ign', function(req, res) {
 		phjs.formatPlayer(req.params.username, req.params.ign, function(err){
