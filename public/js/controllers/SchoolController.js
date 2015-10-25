@@ -31,7 +31,7 @@ app.controller('SchoolController', function($scope, $routeParams, $http){
 						tier = "Challenger";
 						break;
 					default:
-						tier = "Error"
+						tier = "Unranked"
 						break;
 				};
 				var division;
@@ -52,7 +52,7 @@ app.controller('SchoolController', function($scope, $routeParams, $http){
 						division = "V";
 						break;
 					default:
-						division = "Error"
+						division = ""
 						break;
 				};
 				player.divStr = division;
