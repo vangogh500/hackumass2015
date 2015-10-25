@@ -42,6 +42,7 @@ app.controller('SchoolController', function($scope, $routeParams, $http){
 				switch(player.rankSoloQ.division) {
 					case 0:
 						division = ""
+						break;
 					case 5:
 						division = "I";
 						break;
