@@ -21,6 +21,6 @@
     "express": "^4.13.3",
     "jade": "^1.11.0",
     "mongoose": "^4.2.2",
-    "nodemailer": "^1.8.0"
+    "nodemailer": "^0.7.1"
   }
 }
