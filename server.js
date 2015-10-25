@@ -5,9 +5,6 @@ var express = require('express');
 var app = express();
 
 var User = require('./models/user.js');
-
-var playerhandler = require('./lib/player_handler.js');
-playerhandler.formatPlayer('vangogh500');	
 	
 //=========================================================================
 	

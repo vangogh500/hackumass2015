@@ -98,7 +98,7 @@ module.exports = function(app) {
 	
 	app.post('/api/user/:username/:ign', function(req, res) {
 		phjs.formatPlayer(req.params.username, req.params.ign, function(err){
-			if (err) res.end(err);
+			if (err) res.end('Error');
 			else res.end('Success!');
 		});
 	});
