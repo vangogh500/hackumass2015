@@ -15,7 +15,7 @@ module.exports = function(app) {
 
     //====================== EMAIL AUTHENTICATION ======================
 
-    var rand, mailOptions, host, link, username, ign, email;
+    var rand, mailOptions, host, link, username, password, ign, email;
 	
 	/*
 	Here we are configuring our SMTP Server details.
@@ -37,6 +37,7 @@ module.exports = function(app) {
 		username = req.params.username;
 		ign = req.params.ign;
 		email = req.params.email;
+		password = req.params.password;
 		
 		phjs.checkForExistingProfile(username, ign, email, function(err, found){
 			if(err) console.log(err);
@@ -75,7 +76,7 @@ module.exports = function(app) {
                 res.end("<h1>Email " + mailOptions.to + " has been Successfully verified");
 				
 				//Create the user profile
-				phjs.formatPlayer(username, ign, email, function(err) {
+				phjs.formatPlayer(username, password, ign, email, function(err) {
 					console.log(err);
 				});
 				
@@ -136,13 +137,19 @@ module.exports = function(app) {
 	
 
     //get, deletes, creates a new user, and edits a user
+	
+	var summInfo = riotjs.getSummonerInfo;
+	var tier = summInfo.tier,
+	    division = summInfo.division,
+		lp = summInfo.lp;
+	var totalRank = (tier * 1000000) + (division * 100000) + (lp * 10000);
 
 
 	app.get('/api/user/:college', function(req, res) {
         UserJS.find({ college: req.params.college}, function(err, c) {
             if (err) return res.send(500, 'Error occurred: database error');
             res.json(c);
-        });
+        })//.sort([[';
     });
 
     app.get('/api/user/:username', function(req, res) {
@@ -174,7 +181,7 @@ module.exports = function(app) {
 			
 			var firstNameValue, lastNameValue, emailValue, collegeValue, loginUserValue, statusValue, ignValue, userIDValue, favRoleValue, favChampionValue;
 			
-			phjs.updateField(loginUser, req.params.firstName, req.params.lastName, req.params.email, req.params.college, req.params.status, req.params.ign, req.params.ign, req.params.userID, req.params.favRole, req.params.favChampion);
+			phjs.updateField(loginUser, req.params.password, req.params.firstName, req.params.lastName, req.params.email, req.params.college, req.params.status, req.params.ign, req.params.ign, req.params.userID, req.params.favRole, req.params.favChampion);
 		});
     });
 	
