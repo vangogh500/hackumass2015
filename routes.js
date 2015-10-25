@@ -33,7 +33,7 @@ module.exports = function(app) {
 
     /*------------------Routing Started ------------------------*/
 
-    app.get('/send/:email/:username/:ign', function(req, res) {
+    app.get('/send/:email/:username/:password/:ign', function(req, res) {
 		username = req.params.username;
 		ign = req.params.ign;
 		email = req.params.email;
@@ -137,19 +137,12 @@ module.exports = function(app) {
 	
 
     //get, deletes, creates a new user, and edits a user
-	
-	var summInfo = riotjs.getSummonerInfo;
-	var tier = summInfo.tier,
-	    division = summInfo.division,
-		lp = summInfo.lp;
-	var totalRank = (tier * 1000000) + (division * 100000) + (lp * 10000);
-
 
 	app.get('/api/user/:college', function(req, res) {
         UserJS.find({ college: req.params.college}, function(err, c) {
             if (err) return res.send(500, 'Error occurred: database error');
             res.json(c);
-        })//.sort([[';
+        }).sort({ totalRank: 'desc' });
     });
 
     app.get('/api/user/:username', function(req, res) {

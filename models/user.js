@@ -23,7 +23,8 @@ var userSchema = mongoose.Schema({
 	rankSoloQ: {
 		tier: Number,
 		division: Number,
-		lp: Number
+		lp: Number,
+		totalRank: Number
 	},
 	
 	//Admin info
