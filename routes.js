@@ -38,7 +38,7 @@ module.exports = function(app) {
 		ign = req.params.ign;
 		email = req.params.email;
 		
-		riotjs.checkForExistingProfile(username, ign, email, function(err){
+		phjs.checkForExistingProfile(username, ign, email, function(err){
 			if (!err) 
 				res.end("conflict");	//not error means that profile (user || ign || email) already exists
 			else{
@@ -138,6 +138,12 @@ module.exports = function(app) {
     //get, deletes, creates a new user, and edits a user
 
 
+	app.get('/api/user/:college', function(req, res) {
+        UserJS.findAll({ college: req.params.college}, function(err, c) {
+            if (err) return res.send(500, 'Error occurred: database error');
+            res.json(c);
+        });
+    });
 
     app.get('/api/user/:username', function(req, res) {
         UserJS.findOne({ loginUser: req.params.username}, function(err, u) {
