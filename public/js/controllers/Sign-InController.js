@@ -23,6 +23,10 @@ app.controller('Sign-InController', function($scope, $routeParams, $http){
 						$scope.msg = "Email was invalid!";
 				    	$scope.$apply;
 					}
+					else if(response.data == 'conflict') {
+						$scope.msg = "Username, ign, or email has already been reserved!";
+				    	$scope.$apply;
+					}
 					else {
 						$scope.msg = "Email was sent!";
 						$scope.$apply;
