@@ -1,0 +1,13 @@
+
+#register {
+	background: #801515;
+	padding: 80px 60px;
+}
+
+#register h1 {
+	color: white;
+}
+
+input {
+	margin-top: 5px;
+}

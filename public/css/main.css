@@ -5,12 +5,12 @@
 
 body {
 	font-family: 'Montserrat', sans-serif;
-	background: #399480;
-	/* Old color #D34747 */
+	background: #D34747;
+	/* Old color #399480 */
 }
 
 #header {
-	background: #399480;
+	background: #D34747;
 	/* Old color #D34747 */
 	color: #cccccc;
 	padding: 10px 100px 20px 140px;
@@ -71,4 +71,10 @@ ul#menu li:hover {
 #school {
 	padding: 20px 80px;
 	font-size: 24px;
+}
+
+.descr {
+	color: #ffffff;
+	margin-right: 20px;
+	float: left;
 }

@@ -10,7 +10,11 @@ app.config(function($routeProvider) {
       templateUrl: 'views/school.html',
       controller: 'SchoolController'
     })
+    .when('/sign-in', {
+      templateUrl: 'views/sign-in.html',
+      controller: 'Sign-InController'
+    })
     .otherwise({ 
       redirectTo: '/' 
-    }); 
+    });
 });
