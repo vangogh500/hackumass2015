@@ -3,18 +3,6 @@ var UserJS = require('./models/user.js');
 var nodemailer = require("nodemailer");
 var phjs = require('./lib/player_handler.js');
 
-/*
-	Here we are configuring our SMTP Server details.
-	STMP is mail server which is responsible for sending and recieving email.
-*/
-var smtpTransport = nodemailer.createTransport("SMTP", {
-    service: "Gmail",
-    auth: { //COLLAPSED FOR SECURITY
-        user: "hackunilol",
-        pass: "unilol2015"
-    }
-});
-
 module.exports = function(app) {
 
 	app.use(require('cors')());
@@ -42,6 +30,18 @@ module.exports = function(app) {
     //====================== EMAIL AUTHENTICATION ======================
 
     var rand, mailOptions, host, link;
+	
+	/*
+	Here we are configuring our SMTP Server details.
+	STMP is mail server which is responsible for sending and recieving email.
+	*/
+	var smtpTransport = nodemailer.createTransport("SMTP", {
+		service: "Gmail",
+		auth: { //COLLAPSED FOR SECURITY
+			user: "hackunilol",
+			pass: "unilol2015"
+		}
+	});
 
     /*------------------SMTP Over-----------------------------*/
 
@@ -85,7 +85,7 @@ module.exports = function(app) {
     });
 
 
-    //====================== END OF EMAIL AUTHENTICATION ======================
+    //====================== END OF EMAIL AUTHENTICATION ======================	
 
 
     //get, deletes, creates a new user, and edits a user
@@ -106,10 +106,14 @@ module.exports = function(app) {
 		});
 	});
 
-    //PATH MIGHT BE WRONG
     app.put('/api/user/:username/:password', function(req, res) {
-
-
+		UserJS.findOne({ loginUser: req.params.username}, function(err, u) {
+			if (err) return res.send(500, 'Error occurred: database error');
+			
+			var firstNameValue, lastNameValue, emailValue, collegeValue, loginUserValue, statusValue, ignValue, userIDValue, favRoleValue, favChampionValue;
+			
+			phjs.updateField(loginUser, req.params.firstName, req.params.lastName, req.params.email, req.params.college, req.params.status, req.params.ign, req.params.ign, req.params.userID, req.params.favRole, req.params.favChampion);
+		});
     });
 
 

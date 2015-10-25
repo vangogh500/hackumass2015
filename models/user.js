@@ -10,18 +10,19 @@ var userSchema = mongoose.Schema({
 	
 	//Site profile info
 	loginUser: String,
+	password: String,
 	status: String,
 
 	//In-game info
 	ign: String,
-	userID: String,
+	userID: Number,	//summoner ID from Riot Api
 	favRole: String,
 	favChampion: String,
 
 	//Rank info
 	rankSoloQ: {
-		tier: String,
-		division: String,
+		tier: Number,
+		division: Number,
 		lp: Number
 	},
 	

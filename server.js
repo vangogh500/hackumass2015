@@ -5,7 +5,16 @@ var express = require('express');
 var app = express();
 
 var User = require('./models/user.js');
-	
+
+var phjs = require('./lib/player_handler.js');
+
+phjs.formatPlayer('Hauuguu', 'ayuu', function(err) {
+	console.log(err);
+	phjs.updateProfile('Hauuguu', 'Hwan', 'Cho', 'cho@umass.edu', 'nico nico nii', 'UMass', 'Ayuuuuuu', 123123123, 'Support', 'Tryndamere');
+});
+
+
+
 //=========================================================================
 	
 // configure app to use bodyParser()
