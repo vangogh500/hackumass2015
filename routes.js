@@ -34,28 +34,36 @@ module.exports = function(app) {
     /*------------------Routing Started ------------------------*/
 
     app.get('/send/:email/:username/:ign', function(req, res) {
-		email = req.params.email;
 		username = req.params.username;
 		ign = req.params.ign;
+		email = req.params.email;
 		
-        rand = Math.floor((Math.random() * 100) + 54);
-        host = req.get('host');
-        link = "http://" + req.get('host') + "/verify?id=" + rand;
-        mailOptions = {
-            to: email,
-            subject: "Please confirm your Email account",
-            html: "Hello,<br> Please Click on the link to verify your email.<br><a href=" + link + ">Click here to verify</a>"
-        }
-        console.log(mailOptions);
-        smtpTransport.sendMail(mailOptions, function(error, response) {
-            if (error) {
-                console.log(error);
-                res.end("error");
-            } else {
-                console.log("Message sent: " + response.message);
-                res.end("sent");
-            }
-        });
+		riotjs.checkForExistingProfile(username, ign, email, function(err){
+			if (!err) 
+				res.end("conflict");	//not error means that profile (user || ign || email) already exists
+			else{
+		
+				rand = Math.floor((Math.random() * 100) + 54);
+				host = req.get('host');
+				link = "http://" + req.get('host') + "/verify?id=" + rand;
+				mailOptions = {
+					to: email,
+					subject: "Please confirm your Email account",
+					html: "Hello,<br> Please Click on the link to verify your email.<br><a href=" + link + ">Click here to verify</a>"
+				}
+				console.log(mailOptions);
+				smtpTransport.sendMail(mailOptions, function(error, response) {
+					if (error) {
+						console.log(error);
+						res.end("error");
+					} else {
+						console.log("Message sent: " + response.message);
+						res.end("sent");
+					}
+				});
+				
+			}
+		});
     });
 
     app.get('/verify', function(req, res) {
@@ -85,12 +93,16 @@ module.exports = function(app) {
 
 	//====================== MASTERY PAGE AUTHENTICATION ======================
 
-    var correctMPName, host, link, ign;
-	//ign = req.params.ign;
+    var correctMPName, host, link, ign, 
+		isCorrect = false;
 
     /*------------------Routing Started ------------------------*/
 
-    /*app.get('/masteryVerify', function(req, res) {
+    app.get('/masteryVerify', function(req, res) {
+		correctMPName = 'unilol';
+		ign = req.params.ign;
+		summonerID = riotjs.getSummonerID(ign);
+	
 		var opts = {
 			hostname: 'na.api.pvp.net',
 			method: 'GET',
@@ -100,26 +112,25 @@ module.exports = function(app) {
 			}
 		}
 		
+		//This is JSON type (supposedly)
+		var path = 'na.api.pvp.net/api/lol/na/v1.4/summoner/' + summonerID + '/masteries' + '?api_key=7d6620b3-bb57-48fc-8c86-25e607cb9e72';
 		
-        if ( == correctMPName) {	//WARNING: TWO EQUALS
-            console.log("Mastery page name matched. League account is from owner.");
-            if (req.query.id == rand) {
-                console.log("Ownership is verified");
-                res.end("<h1>Ownership via mastery page has been successfully verified");
-            } else {
-                console.log("email is not verified");
-                res.end("<h1>Bad Request</h1>");
-            }
-        } else {
-            res.end("<h1>Request is from unknown source");
-        }
-    });
-	
-		
-	makeRequest(opts, function(data) {
-		cb(data[summonerName.toLowerCase()].id);
-	});*/
+		//Search for mastery page with correct name
+		for (var i = 0; i < path.summonerID.pages.length; i++){
+			if (summonerID.pages[i].name == correctMPName){		//WARNING: TWO EQUALS
+				isCorrect = true;
+				console.log("Mastery page name matched. League account is from owner.");
+			}
+		}
 
+		if (isCorrect) {
+			console.log("Ownership is verified");
+			res.end("<h1>Ownership via mastery page has been successfully verified");
+		} else {
+			console.log("email is not verified");
+			res.end("<h1>Bad Request</h1>");
+		}
+    });
 
     //====================== END OF MASTERY PAGE AUTHENTICATION ======================	
 	
