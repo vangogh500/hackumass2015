@@ -85,11 +85,12 @@ module.exports = function(app) {
 
 	//====================== MASTERY PAGE AUTHENTICATION ======================
 
-    var correctMPName, host, link;
+    var correctMPName, host, link, ign;
+	//ign = req.params.ign;
 
     /*------------------Routing Started ------------------------*/
 
-    app.get('/masteryVerify', function(req, res) {
+    /*app.get('/masteryVerify', function(req, res) {
 		var opts = {
 			hostname: 'na.api.pvp.net',
 			method: 'GET',
@@ -98,10 +99,6 @@ module.exports = function(app) {
 				'X-Riot-Token': apiToken
 			}
 		}
-	
-		
-		
-		
 		
 		
         if ( == correctMPName) {	//WARNING: TWO EQUALS
@@ -121,12 +118,7 @@ module.exports = function(app) {
 		
 	makeRequest(opts, function(data) {
 		cb(data[summonerName.toLowerCase()].id);
-	});
-	
-	
-	
-	
-};
+	});*/
 
 
     //====================== END OF MASTERY PAGE AUTHENTICATION ======================	
