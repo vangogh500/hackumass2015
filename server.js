@@ -5,8 +5,19 @@ var express = require('express');
 var app = express();
 
 var User = require('./models/user.js');
+var College = require('./models/college.js');
 
 var phjs = require('./lib/player_handler.js');
+
+var umass = new College({
+	collegeName: 'UMass Amherst',
+	emailDomain: 'umass.edu',
+	imageURL: 'http://www.ecs.umass.edu/ece373/umass-logo.jpg'
+});
+
+umass.save(function(err) {
+	console.log("saving umass");
+});
 
 /*phjs.formatPlayer('Hauuguu', 'ayuu', function(err) {
 	console.log(err);
