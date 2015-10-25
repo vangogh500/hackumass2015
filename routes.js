@@ -11,21 +11,7 @@ module.exports = function(app) {
     app.get('/', function(req, res) {
         res.sendFile('./index.html');
     });
-    // 404 page
-    app.use(function(req, res) {
-        res.type('text/plain');
-        res.status(404);
-        res.send('404 - Not Found');
-    });
-
-    // 500 page
-    app.use(function(err, req, res, next) {
-        console.error(err.stack);
-        res.type('text/plain');
-        res.status(500);
-        res.send('500 - Server Error');
-    });
-
+   
 
     //====================== EMAIL AUTHENTICATION ======================
 
@@ -99,22 +85,59 @@ module.exports = function(app) {
         });
     });
 	
+	app.remove('/api/user/:username', function(req, res) {
+	
+		phjs.removeProfile(req.params.username, function(err){
+			if (err) return res.send(500, 'Error occurred: database error');
+			else res.send('Delete success!');
+		}
+	
+		/*UserJS.remove({ loginUser: req.params.username}, function(err){
+			if (err) return res.send(500, 'Error occurred: database error');
+			else res.send('Delete success!');
+		}*/
+	}
+	
 	app.post('/api/user/:username/:ign', function(req, res) {
 		phjs.formatPlayer(req.params.username, req.params.ign, function(err){
 			if (err) res.send('Error');
-			else res.send('Success!');
+			else res.send('Post success!');
 		});
 	});
 
     app.put('/api/user/:username/:password', function(req, res) {
 		UserJS.findOne({ loginUser: req.params.username}, function(err, u) {
 			if (err) return res.send(500, 'Error occurred: database error');
+			else res.send('Put success!');
 			
 			var firstNameValue, lastNameValue, emailValue, collegeValue, loginUserValue, statusValue, ignValue, userIDValue, favRoleValue, favChampionValue;
 			
 			phjs.updateField(loginUser, req.params.firstName, req.params.lastName, req.params.email, req.params.college, req.params.status, req.params.ign, req.params.ign, req.params.userID, req.params.favRole, req.params.favChampion);
 		});
     });
+	
+	
+	
+	
+	
+	
+	
+	
+	 // 404 page
+    app.use(function(req, res) {
+        res.type('text/plain');
+        res.status(404);
+        res.send('404 - Not Found');
+    });
+
+    // 500 page
+    app.use(function(err, req, res, next) {
+        console.error(err.stack);
+        res.type('text/plain');
+        res.status(500);
+        res.send('500 - Server Error');
+    });
+
 
 
 };
