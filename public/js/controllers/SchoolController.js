@@ -11,24 +11,27 @@ app.controller('SchoolController', function($scope, $routeParams, $http){
 				var tier;
 				switch(player.rankSoloQ.tier) {
 					case 0:
-						tier = "Bronze";
+						tier = "Unranked"
 						break;
 					case 1:
-						tier = "Silver";
+						tier = "Bronze";
 						break;
 					case 2:
-						tier = "Gold";
+						tier = "Silver";
 						break;
 					case 3:
-						tier = "Platinum";
+						tier = "Gold";
 						break;
 					case 4:
-						tier = "Diamond";
+						tier = "Platinum";
 						break;
 					case 5:
-						tier = "Master";
+						tier = "Diamond";
 						break;
 					case 6:
+						tier = "Master";
+						break;
+					case 7:
 						tier = "Challenger";
 						break;
 					default:
@@ -38,18 +41,20 @@ app.controller('SchoolController', function($scope, $routeParams, $http){
 				var division;
 				switch(player.rankSoloQ.division) {
 					case 0:
+						division = ""
+					case 5:
 						division = "I";
 						break;
-					case 1:
+					case 4:
 						division = "II";
 						break;
-					case 2:
+					case 3:
 						division = "III";
 						break;
-					case 3:
+					case 2:
 						division = "IV";
 						break;
-					case 4:
+					case 1:
 						division = "V";
 						break;
 					default:

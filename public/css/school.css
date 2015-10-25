@@ -36,6 +36,7 @@ span {
 
 .player {
 	padding: 20px 35px;
+	transition: background 0.8s;
 }
 
 .player:nth-child(even) {
@@ -43,7 +44,7 @@ span {
 }
 
 .player:hover {
-	
+	background: #bbbbbb;
 }
 
 .ign {
